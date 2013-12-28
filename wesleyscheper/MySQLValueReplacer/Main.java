@@ -25,7 +25,7 @@ public class Main {
 	public static void replaceValue(String value, String replaceValue){
 		DBManager dbManager = new DBManager("ipaddress:port", "root", "root", "database_name"); // database connection
 		
-		List<String> tables = dbManager.getStringValues("SHOW TABLES");
+		List<String> tables = dbManager.getStringValues("SHOW FULL TABLES WHERE Table_Type = 'base table'");
 			
 		for (String table : tables){ // go along every table
 			List<String> columns = dbManager.getStringValues("SHOW COLUMNS FROM " + table);
